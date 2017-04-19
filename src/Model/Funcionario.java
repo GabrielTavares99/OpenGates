@@ -25,12 +25,12 @@ public class Funcionario extends Pessoa{
 		super.setNome(nome);
 	}
 	@Override
-	public Integer getRg() {
+	public String getRg() {
 		// TODO Auto-generated method stub
 		return super.getRg();
 	}
 	@Override
-	public void setRg(Integer rg) {
+	public void setRg(String rg) {
 		// TODO Auto-generated method stub
 		super.setRg(rg);
 	}

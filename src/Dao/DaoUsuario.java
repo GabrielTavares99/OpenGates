@@ -65,6 +65,33 @@ public class DaoUsuario implements DaoGenerico{
 		
 		return listaMoradores;
 	}
+	
+	public List<Morador> listarPorNome(){
+		
+		List<Morador> listaMoradores;
+		
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+		session.beginTransaction();
+		session.getTransaction().commit();
+		
+
+//		Objeto de consulta
+		Criteria criteria = session.createCriteria(Morador.class);
+//		eq procura o atributo da classe mais uma descrição
+//		ne é restrição, nao deve ter tal parâmetro
+//		Dá pra procurar campos vázios com ISnull e um atributo da classe
+//		criteria.add(Restrictions.eq("placa","ABC-123"));
+//		Listagem de retorno
+		ProjectionList listaProjecao = Projections.projectionList();
+		listaProjecao.add(Projections.property("id"));
+		listaMoradores = criteria.list();
+		
+		session.close();
+			
+		return listaMoradores;
+		
+	}
 
 	@Override
 	public boolean editar() {

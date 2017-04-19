@@ -27,7 +27,7 @@ public class Morador extends Pessoa{
 	private Integer numeroApartamento;
 	private List<Veiculo> listaVeiculos = new ArrayList<>();
 	private Integer id;
-	private String bloco;
+	private String bloco;	
 
 //	Anotação que diz que é uma coleção de objetos endereco, cria uma segunda tabela no banco
 //	Fetch diz o tamanho de linhas trazias do banco (EAGER traz tudo do banco, todas as informacoes)
@@ -66,12 +66,12 @@ public class Morador extends Pessoa{
 		super.setNome(nome);
 	}
 	@Override
-	public Integer getRg() {
+	public String getRg() {
 		// TODO Auto-generated method stub
 		return super.getRg();
 	}
 	@Override
-	public void setRg(Integer rg) {
+	public void setRg(String rg) {
 		// TODO Auto-generated method stub
 		super.setRg(rg);
 	}

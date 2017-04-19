@@ -13,7 +13,7 @@ public class Pessoa {
 	private Integer id;
 	
 	private String nome;
-	private Integer rg;
+	private String rg;
 	
 	public String getNome() {
 		return nome;
@@ -22,10 +22,10 @@ public class Pessoa {
 		this.nome = nome;
 	}
 	
-	public Integer getRg() {
+	public String getRg() {
 		return rg;
 	}
-	public void setRg(Integer rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 	public Integer getId() {
