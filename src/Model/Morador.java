@@ -18,12 +18,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import Dao.DaoMorador;
+
 //Anotação que diz que essa vai ser uma tabela no banco de dados
 @Entity
 //Anotação que alterna o nome da tabela do banco
 @Table(name = "tb_Morador")
 public class Morador extends Pessoa{
 
+	public DaoMorador daoMorador;
+
+	public Morador(){
+		daoMorador = new DaoMorador();
+	}
+	
 	private Integer numeroApartamento;
 	private List<Veiculo> listaVeiculos = new ArrayList<>();
 	private Integer id;

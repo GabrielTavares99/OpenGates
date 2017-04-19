@@ -11,8 +11,7 @@ public class ViewJButton {
 		pn_painel = pn_campo;
 	}
 	
-	public JButton botaoInserir(JButton btn_inserir,int x, int y, int width, int heigth, String mensagem){
-		
+	public JButton botaoSimples(JButton btn_inserir,int x, int y, int width, int heigth, String mensagem){
 		btn_inserir = new JButton(mensagem);
 		btn_inserir.setBounds(x, y, width, heigth);
 		return btn_inserir;

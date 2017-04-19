@@ -4,8 +4,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import Dao.DaoGenerico;
+import Dao.DaoPessoa;
+
 public class Pessoa {
 
+	DaoPessoa daoPessoa;
+	
 //	Identifica que é uma Primary Key
 	@Id
 //	Gera o código de PK de moto automatico
@@ -35,5 +40,7 @@ public class Pessoa {
 		this.id = id;
 	}
 	
-	
+	public Pessoa(){
+		daoPessoa = new DaoPessoa();
+	}
 }

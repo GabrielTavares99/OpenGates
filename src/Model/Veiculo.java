@@ -47,6 +47,13 @@ public class Veiculo {
 //	public void setId(Integer id) {
 //		this.id = id;
 //	}
+	
+	@Override
+		public String toString() {
+
+			
+			return "Placa "+this.getPlaca()+" Chassi"+ this.getNumeroChassi().toString();
+		}
 
 	
 }
