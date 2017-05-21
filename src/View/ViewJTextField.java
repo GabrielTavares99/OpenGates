@@ -1,8 +1,12 @@
 package View;
 
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 public class ViewJTextField extends JTextField{
 
@@ -20,6 +24,25 @@ public class ViewJTextField extends JTextField{
 		return txt_campo;
 	}
 	
-
+	MaskFormatter mk_placa ;
+	
+	public JFormattedTextField mascaraPlaca (JFormattedTextField placa, int x, int y, int width, int height){
+		
+		placa = new JFormattedTextField();
+		placa.setBounds(x, y, width, height);
+		
+//		Criando a mascara para o campo
+		try {
+			mk_placa = new MaskFormatter( "AAA-####" );
+			mk_placa.setInvalidCharacters(null);
+			mk_placa.install(placa);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return placa;
+	}
+	
 	
 }

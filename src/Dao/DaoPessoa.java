@@ -6,11 +6,6 @@ import Model.Morador;
 
 public class DaoPessoa implements DaoGenerico{
 
-	
-	public DaoPessoa(){
-		
-	}
-
 	@Override
 	public boolean inserir(Object object) {
 		// TODO Auto-generated method stub
@@ -18,23 +13,17 @@ public class DaoPessoa implements DaoGenerico{
 	}
 
 	@Override
-	public boolean deletar() {
+	public boolean excluir(Object object) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public List<Morador> listar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean editar() {
+	public boolean editar(Object object) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	
+
+		
 	
 }

@@ -26,8 +26,7 @@
 
         <!-- Names the annotated entity class -->
 		<mapping class="Model.Morador"/>
-
-<!-- 		<mapping class="curso.hibernate.modelo.Projeto"/> -->
+		<mapping class="Model.Veiculo"/>
 		
 <!-- 		<mapping class="curso.hibernate.heranca.VeiculoHeranca"/> -->
 <!-- 		<mapping class="curso.hibernate.heranca.VeiculoQuatroRodas"/> -->

@@ -33,7 +33,8 @@ public class Morador extends Pessoa{
 	}
 	
 	private Integer numeroApartamento;
-	private List<Veiculo> listaVeiculos = new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="Morador")
+	private List<Veiculo> listaVeiculos = new ArrayList<Veiculo>();
 	private Integer id;
 	private String bloco;	
 
@@ -41,7 +42,6 @@ public class Morador extends Pessoa{
 //	Fetch diz o tamanho de linhas trazias do banco (EAGER traz tudo do banco, todas as informacoes)
 	@ElementCollection	(fetch = FetchType.EAGER)
 //	Anotação que dá o nome que eu desejo para a tabela a ser criada
-	@JoinTable(name="tb_veiculo", joinColumns=@JoinColumn(name = "id_usuario"))
 	public List<Veiculo> getListaVeiculos() {
 		return listaVeiculos;
 	}
@@ -98,3 +98,5 @@ public class Morador extends Pessoa{
 
 
 }
+
+

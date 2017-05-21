@@ -32,108 +32,77 @@ public class ViewPrincipal  extends JFrame implements ActionListener, KeyListene
 
 	CardLayout cardLayout;
 	
-	static JTable tabela;
-	
-	JFormattedTextField txt_consultaPlca;
-	
-	JPanel pn_pesquisa;
+	JPanel pn_consulta;
 	JPanel pn_menu;
 	JPanel pn_crud;
 	JPanel pn_conteudo;
 	
-	MaskFormatter mk_placaVeiculo; 
-	
 	JFrame tela;
 	
-	JButton btn_pesquisar;
 	JButton btn_crud, btn_pesquisa;
-	
-	DaoUsuario daoUsuario;
-	
+		
+//	VARIAVEIS GLOBAIS DE GERENCIAMENTO
+	String TITULO_SISTEMA = "Open Getes - O seu controle de acesso inteligente!";
+	static int LARGURA_TELA = 800;
+	static int ALTURA_TELA = 600;
+	int LARGURA_MENU = 200;
+	int ALTURA_MENU = ALTURA_TELA;
+	int LARGURA_BOTAO = LARGURA_MENU;
+	int ALTURA_BOTAO = 50;
 	
 	public ViewPrincipal(){
 		
 		cardLayout = new CardLayout();
 		
-		setTitle("Open Gates");
-		setSize(800, 600);
+		setTitle(TITULO_SISTEMA);
+		setSize(LARGURA_TELA, ALTURA_TELA);
 		setLayout(null);
 		setLocationRelativeTo(null);
 		
 		tela = this;
-		
-//		Instanciando um objeto DaoUsuario para o CRUD
-		daoUsuario = new DaoUsuario();
-		
-//		Menu
+				
+//		PAINEL DO MENU
 		pn_menu = new ViewPnMenu();
-		pn_menu.setBounds(0, 0, 200, this.getHeight());
+		pn_menu.setBounds(0, 0, LARGURA_MENU, ALTURA_MENU);
 		pn_menu.setLayout(null);
 		pn_menu.setOpaque(true);
 		pn_menu.setBackground(Color.GREEN);
 		add(pn_menu);
 		
+//		BOTÃO QUE ACESSA O PAINEL DE CADASTRO
 		btn_crud = new JButton("Cadastro");
-		btn_crud.setBounds(0, 100, pn_menu.getWidth(), 50);
+		btn_crud.setBounds(0, 100, LARGURA_BOTAO, ALTURA_BOTAO);
 		pn_menu.add(btn_crud);
 		
+//		BOTÃO QUE ACESSA O PAINEL DE CONSULTA DE PLACA
 		btn_pesquisa = new JButton("Consultar PLaca");
-		btn_pesquisa.setBounds(0, 0, pn_menu.getWidth(),50);
+		btn_pesquisa.setBounds(0, 0, LARGURA_MENU,ALTURA_BOTAO);
 		pn_menu.add(btn_pesquisa);
 		
-//		Conteudo - do lado do painel
+//		PAINEL DE CONTEÚDO
 		pn_conteudo = new JPanel();
 		pn_conteudo.setLayout(cardLayout);
 		pn_conteudo.setOpaque(true);
-		pn_conteudo.setBounds(200, 0, this.getWidth()-200, this.getHeight());
+		pn_conteudo.setBounds(200, 0, LARGURA_TELA-LARGURA_MENU, ALTURA_TELA);
 		pn_conteudo.setBackground(Color.pink);
 		add(pn_conteudo);
 		
 //		Primeiro Card
-		pn_pesquisa = new JPanel();
-		pn_pesquisa.setBounds(200, 0, this.getWidth()-200, this.getHeight());
-		pn_pesquisa.setLayout(null);
-		pn_pesquisa.setOpaque(true);
-		pn_pesquisa.setBackground(Color.RED);
-		pn_conteudo.add(pn_pesquisa,"1");
+		pn_consulta = new ViewPnConsulta();
+		pn_conteudo.add(pn_consulta,"1");
 		
 //		Segundo Card
 		pn_crud = new ViewPnCrud();
 		pn_conteudo.add(pn_crud,"2");
 		
 //		==============================================================
-		
-		
-		
+
 //		=================================================================
 				
 //		Adicionando Listener ao botão de crud
 		btn_crud.addActionListener(this);
 		btn_pesquisa.addActionListener(this);
-	
-//		Caixa de Texto para digitar a placa do veículo
-		txt_consultaPlca = new JFormattedTextField();
-		txt_consultaPlca.setBounds(0, 0, 100, 60);
-		
-//		Colocando máscara no campo JFormattedTextField para atender o padrão de placas de carro
-		try {
-			mk_placaVeiculo = new MaskFormatter( "AAA-####" );
-			mk_placaVeiculo.setInvalidCharacters(null);
-			mk_placaVeiculo.install(txt_consultaPlca);
-//			Adicionando o campo aqui dentro pq tenho que primeiro isntanciar para depois aplicar mascara
-			pn_pesquisa.add("",txt_consultaPlca);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-//		Botão para pesquisar a placa digitada
-		btn_pesquisar = new JButton("Pesquisa");
-		btn_pesquisar.setBounds(150, 0, 100, 60);
-		pn_pesquisa.add(btn_pesquisar);
-		
-//		Adicionando evento a caixa de pesquisa
-		txt_consultaPlca.addKeyListener(this);
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
@@ -153,15 +122,7 @@ public class ViewPrincipal  extends JFrame implements ActionListener, KeyListene
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		
-//		Usuario usuario
-		
-//		daoUsuario.inserir(usuario)
-		
-//		for (Morador morador : daoUsuario.listarPorNome()) {
-//			System.out.println(morador.getNome());
-//		}
-		
+
 	}
 
 	@Override

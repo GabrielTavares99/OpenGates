@@ -17,7 +17,7 @@ import Model.Morador;
 import Model.Pessoa;
 import Model.Veiculo;
 
-public class DaoUsuario implements DaoGenerico{
+public class DaoUsuario {
 
 
 	public boolean inserir(List<Veiculo> listaVeiculos, Morador morador ) {
@@ -44,11 +44,7 @@ public class DaoUsuario implements DaoGenerico{
 		}
 	}
 
-	@Override
-	public boolean deletar() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 	public List<Morador> listar() {
 
@@ -93,17 +89,7 @@ public class DaoUsuario implements DaoGenerico{
 		
 	}
 
-	@Override
-	public boolean editar() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public boolean inserir(Object object) {
-
-		return false;
-	}
 //	Criando método passando uma pessoa
 	public boolean inserir(Pessoa pessoa){
 //		Verificando se é um morador

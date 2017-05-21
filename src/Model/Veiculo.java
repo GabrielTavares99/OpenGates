@@ -50,9 +50,7 @@ public class Veiculo {
 	
 	@Override
 		public String toString() {
-
-			
-			return "Placa "+this.getPlaca()+" Chassi"+ this.getNumeroChassi().toString();
+			return "Placa "+this.getPlaca()+" Chassi "+ this.getNumeroChassi().toString();
 		}
 
 	
